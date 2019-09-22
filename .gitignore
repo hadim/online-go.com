@@ -15,7 +15,7 @@ how_to_add_a_new_language.txt
 .DS_Store
 /.alm/
 package-lock.json
-
+packages
 
 
 i18n/data/

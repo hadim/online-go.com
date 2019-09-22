@@ -4,10 +4,19 @@
   "url": "https://github.com/online-go/online-go.com/issues",
   "license": "AGPL-3.0",
   "private": true,
+  "main": "public/electron.js",
   "scripts": {
     "dev": "gulp",
     "webpack": "webpack",
-    "webpack-bundle-analyzer": "webpack-bundle-analyzer"
+    "webpack-bundle-analyzer": "webpack-bundle-analyzer",
+    "electron-dev": "concurrently \"BROWSER=none gulp\" \"wait-on http://localhost:8080 && electron .\"",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "productName": "ogs",
+    "directories": {
+      "output": "packages"
+    }
   },
   "browserslist": [
     "defaults"
@@ -15,7 +24,10 @@
   "devDependencies": {
     "autoprefixer": "^9.6.0",
     "body-parser": "^1.16.1",
+    "concurrently": "^4.1.2",
     "cssnano": "^4.1.4",
+    "electron": "^6.0.10",
+    "electron-builder": "^21.2.0",
     "express": "^4.14.1",
     "express-http-proxy": "^0.11.0",
     "gulp": "^4.0.2",
@@ -36,6 +48,7 @@
     "ts-loader": "^6.0.4",
     "tslint": "^5.19.0",
     "typescript": "^3.6.2",
+    "wait-on": "^3.3.0",
     "webpack": "^4.39.3",
     "webpack-bundle-analyzer": "",
     "webpack-cli": "^3.3.8",
@@ -59,6 +72,7 @@
     "@types/socket.io-client": "^1.4.31",
     "@types/sweetalert": "^1.1.27",
     "d3": "^5.7.0",
+    "electron-is-dev": "^1.1.0",
     "eventemitter3": "^2.0.3",
     "jsonwebtoken": "^8.5.1",
     "markdown-it": "^8.4.2",
